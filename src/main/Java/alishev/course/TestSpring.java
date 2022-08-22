@@ -8,20 +8,24 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        /*Music music = context.getBean("musicBean", Music.class);
-        MusicPlayer musicPlayer = new MusicPlayer(music);*/
+        /*Music music = context.getBean("rockMusic", Music.class);
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+        musicPlayer.playMusic();
+
+        Music music1 = context.getBean("classicalMusic", Music.class);
+        MusicPlayer musicPlayer1 = new MusicPlayer(music1);
+        musicPlayer1.playMusic();*/
+
+
+        Computer computer = context.getBean("computer", Computer.class);
+        System.out.println(computer);
 
         /*MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusicList();
+        musicPlayer.playMusic(GenresOfMusic.CLASSICAL);
+        musicPlayer.playMusic(GenresOfMusic.ROCK);*/
 
-        MusicPlayer musicPlayer2 = context.getBean("musicPlayer2", MusicPlayer.class);
-        musicPlayer2.playMusicList();*/
 
-        /*System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());*/
 
-        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-        musicPlayer.playMusicList();
 
         context.close();
     }

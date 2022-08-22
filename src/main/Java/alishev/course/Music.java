@@ -1,5 +1,7 @@
 package alishev.course;
 
+import java.util.List;
+
 public interface Music {
-    String getSong();
+    List<String> getSong();
 }

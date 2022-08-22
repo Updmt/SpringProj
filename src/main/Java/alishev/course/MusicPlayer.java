@@ -1,34 +1,32 @@
 package alishev.course;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
+@Component
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
+    private Music music1;
+    private Music music2;
 
-    /*private Music music;
-
-    //IoC
-    public MusicPlayer(Music music) {
-        this.music = music;
+    @Autowired
+    public MusicPlayer (@Qualifier("rockMusic") Music music1,
+                        @Qualifier("classicalMusic") Music music2) {
+    this.music1 = music1;
+    this.music2 = music2;
     }
 
-    public void setMusic(Music music) {
-        this.music = music;
-    }*/
-
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    /*public void playMusic2() {
-        System.out.println("Playing: " + music.getSong());
-    }*/
-
-    public void playMusicList() {
-        for (Music song : musicList) {
-            System.out.println("Playing: " + song.getSong());
+    public String playMusic(GenresOfMusic music) {
+        Random random = new Random();
+        switch (music) {
+            case ROCK:
+                return "Playing: " + music1.getSong().get(random.nextInt(music1.getSong().size()));
+            case CLASSICAL :
+                return "Playing: " + music2.getSong().get(random.nextInt(music2.getSong().size()));
         }
+        /*return "Playing: " + music1.getSong() + ", " + music2.getSong();*/
+        return null;
     }
 }

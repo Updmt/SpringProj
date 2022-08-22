@@ -7,27 +7,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="musicBean1"
-          class="alishev.course.ClassicalMusic">
-    </bean>
-
-    <bean id="musicBean2"
-          class="alishev.course.RockMusic">
-    </bean>
-
-    <bean id="musicBean3"
-          class="alishev.course.RapMusic">
-    </bean>
-
-    <bean id="musicPlayer"
-          class="alishev.course.MusicPlayer">
-        <property name="musicList">
-            <list>
-                <ref bean="musicBean1"/>
-                <ref bean="musicBean2"/>
-                <ref bean="musicBean3"/>
-            </list>
-        </property>
-    </bean>
+    <context:component-scan base-package="alishev.course"/>
 
 </beans>
